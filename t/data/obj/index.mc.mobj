@@ -1,0 +1,60 @@
+BEGIN { Mason::Component::Moose->import; }
+BEGIN { Mason::Component::Import->import; }
+our ($m, $_m_buffer);
+*m = \$Mason::Request::current_request;
+*_m_buffer = \$Mason::Request::current_buffer;
+sub _inner { inner() }
+my $_class_cmeta;
+method _set_class_cmeta ($interp) {
+$_class_cmeta = $interp->component_class_meta_class->new(
+'class' => CLASS,
+'dir_path' => '/',
+'interp' => $interp,
+'is_top_level' => '1',
+'object_file' => __FILE__,
+'path' => '/index.mc',
+'source_file' => '/Users/swartz/git/dancer-template-mason2.git/t/views/index.mc',
+);
+}
+sub _class_cmeta { $_class_cmeta }
+#line 2 "/Users/swartz/git/dancer-template-mason2.git/t/views/index.mc"
+has 'var1' => ();
+#line 3 "/Users/swartz/git/dancer-template-mason2.git/t/views/index.mc"
+has 'var2' => ();
+#line 4 "/Users/swartz/git/dancer-template-mason2.git/t/views/index.mc"
+has 'foo' => ();
+#line 5 "/Users/swartz/git/dancer-template-mason2.git/t/views/index.mc"
+has 'bar' => ();
+#line 6 "/Users/swartz/git/dancer-template-mason2.git/t/views/index.mc"
+has 'baz' => ();
+method main  {
+#line 8 "/Users/swartz/git/dancer-template-mason2.git/t/views/index.mc"
+$$_m_buffer .= 'this is var1="';
+#line 8 "/Users/swartz/git/dancer-template-mason2.git/t/views/index.mc"
+for (scalar( $self->var1 )) { $$_m_buffer .= $_ if defined }
+#line 8 "/Users/swartz/git/dancer-template-mason2.git/t/views/index.mc"
+$$_m_buffer .= '" and var2=';
+#line 8 "/Users/swartz/git/dancer-template-mason2.git/t/views/index.mc"
+for (scalar( $self->var2 )) { $$_m_buffer .= $_ if defined }
+#line 8 "/Users/swartz/git/dancer-template-mason2.git/t/views/index.mc"
+$$_m_buffer .= '
+
+another line
+
+';
+#line 12 "/Users/swartz/git/dancer-template-mason2.git/t/views/index.mc"
+for (scalar( $self->foo )) { $$_m_buffer .= $_ if defined }
+#line 12 "/Users/swartz/git/dancer-template-mason2.git/t/views/index.mc"
+$$_m_buffer .= ' ';
+#line 12 "/Users/swartz/git/dancer-template-mason2.git/t/views/index.mc"
+for (scalar( $self->bar )) { $$_m_buffer .= $_ if defined }
+#line 12 "/Users/swartz/git/dancer-template-mason2.git/t/views/index.mc"
+$$_m_buffer .= ' ';
+#line 12 "/Users/swartz/git/dancer-template-mason2.git/t/views/index.mc"
+for (scalar( $self->baz )) { $$_m_buffer .= $_ if defined }
+#line 12 "/Users/swartz/git/dancer-template-mason2.git/t/views/index.mc"
+$$_m_buffer .= '
+';
+
+;return;
+}

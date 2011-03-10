@@ -1,6 +1,6 @@
 package Dancer::Template::Mason2;
 BEGIN {
-  $Dancer::Template::Mason2::VERSION = '0.01';
+  $Dancer::Template::Mason2::VERSION = '0.02';
 }
 use Dancer::Config 'setting';
 use FindBin;
@@ -18,12 +18,12 @@ sub init {
 
     $root_dir = $config->{comp_root} ||= setting('views') || $FindBin::Bin . '/views';
     $config->{data_dir} ||= $FindBin::Bin . "/data";
-    $config->{autoextend_request_path} ||= [];
+    $config->{autoextend_request_path} = 0 if !exists( $config->{autoextend_request_path} );
 
     $_engine = Mason->new(%$config);
 }
 
-sub default_tmpl_ext { "m" }
+sub default_tmpl_ext { "mc" }
 
 sub render {
     my ( $self, $template, $tokens ) = @_;
@@ -46,7 +46,7 @@ Dancer::Template::Mason2 - Mason 2.x wrapper for Dancer
 
 =head1 VERSION
 
-version 0.01
+version 0.02
 
 =head1 SYNOPSIS
 
@@ -61,7 +61,7 @@ version 0.01
     };
   };
 
-Then, on C<views/foo.m>:
+Then, in C<views/foo.mc>:
 
     <%args>
     $.title
@@ -81,7 +81,7 @@ file:
 
     template: mason2
 
-The default template extension is ".m".
+The default template extension is ".mc".
 
 =head1 CONFIGURATION
 

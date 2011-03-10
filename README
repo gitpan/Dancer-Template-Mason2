@@ -2,7 +2,7 @@ NAME
     Dancer::Template::Mason2 - Mason 2.x wrapper for Dancer
 
 VERSION
-    version 0.01
+    version 0.02
 
 SYNOPSIS
       # in 'config.yml'
@@ -16,7 +16,7 @@ SYNOPSIS
         };
       };
 
-    Then, on `views/foo.m':
+    Then, in `views/foo.mc':
 
         <%args>
         $.title
@@ -35,7 +35,7 @@ DESCRIPTION
 
         template: mason2
 
-    The default template extension is ".m".
+    The default template extension is ".mc".
 
 CONFIGURATION
     Parameters can also be passed to `Mason->new' via the configuration
