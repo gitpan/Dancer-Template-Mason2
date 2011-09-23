@@ -1,8 +1,9 @@
 package Dancer::Template::Mason2;
 BEGIN {
-  $Dancer::Template::Mason2::VERSION = '0.02';
+  $Dancer::Template::Mason2::VERSION = '0.03';
 }
 use Dancer::Config 'setting';
+use File::Basename;
 use FindBin;
 use Mason;
 use strict;
@@ -17,7 +18,7 @@ sub init {
     my $config = $self->config || {};
 
     $root_dir = $config->{comp_root} ||= setting('views') || $FindBin::Bin . '/views';
-    $config->{data_dir} ||= $FindBin::Bin . "/data";
+    $config->{data_dir} ||= dirname($root_dir) . "/data";
     $config->{autoextend_request_path} = 0 if !exists( $config->{autoextend_request_path} );
 
     $_engine = Mason->new(%$config);
@@ -46,7 +47,7 @@ Dancer::Template::Mason2 - Mason 2.x wrapper for Dancer
 
 =head1 VERSION
 
-version 0.02
+version 0.03
 
 =head1 SYNOPSIS
 
@@ -95,8 +96,8 @@ like so:
 C<comp_root>, if not specified, defaults to the C<views> configuration setting
 or, if it's undefined, to the C</views> subdirectory of the application.
 
-C<data_dir>, if not specified, defaults to the C</data> subdirectory of the
-application.
+C<data_dir>, if not specified, defaults to a C</data> subdirectory alongside
+the C<comp_root>.
 
 =head1 SEE ALSO
 

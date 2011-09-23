@@ -2,6 +2,11 @@ Revision history for Dancer-Template-Mason2
 
 ** denotes an incompatible change
 
+0.03  Sep 23, 2011
+
+- in 02-basic.t, touch template so it will be recompiled, and switch to 'has' syntax
+- remove t/data from distribution
+
 0.02  Mar 10, 2011
 
 - Use new Mason 2.05 default file extensions (.mc) in documentation and tests

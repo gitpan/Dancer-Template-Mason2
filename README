@@ -2,7 +2,7 @@ NAME
     Dancer::Template::Mason2 - Mason 2.x wrapper for Dancer
 
 VERSION
-    version 0.02
+    version 0.03
 
 SYNOPSIS
       # in 'config.yml'
@@ -49,8 +49,8 @@ CONFIGURATION
     setting or, if it's undefined, to the `/views' subdirectory of the
     application.
 
-    `data_dir', if not specified, defaults to the `/data' subdirectory of
-    the application.
+    `data_dir', if not specified, defaults to a `/data' subdirectory
+    alongside the `comp_root'.
 
 SEE ALSO
     Dancer, Mason, Dancer::Template::Mason

@@ -8,5 +8,4 @@ Makefile.PL
 lib/Dancer/Template/Mason2.pm
 t/01-use.t
 t/02-basic.t
-t/data/obj/index.mc.mobj
 t/views/index.mc
