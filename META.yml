@@ -8,7 +8,7 @@ build_requires:
 configure_requires:
   ExtUtils::MakeMaker: 6.30
 dynamic_config: 0
-generated_by: 'Dist::Zilla version 4.200008, CPAN::Meta::Converter version 2.102400'
+generated_by: 'Dist::Zilla version 4.200008, CPAN::Meta::Converter version 2.113640'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -22,4 +22,4 @@ requires:
 resources:
   bugtracker: http://rt.cpan.org/NoAuth/Bugs.html?Dist=Dancer-Template-Mason2
   repository: git://github.com/jonswar/perl-dancer-template-mason2.git
-version: 0.03
+version: 0.04

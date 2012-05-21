@@ -28,7 +28,7 @@ my %WriteMakefileArgs = (
     'FindBin' => '0',
     'Mason' => '2.05'
   },
-  'VERSION' => '0.03',
+  'VERSION' => '0.04',
   'test' => {
     'TESTS' => 't/*.t'
   }

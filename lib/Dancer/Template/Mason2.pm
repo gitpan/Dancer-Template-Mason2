@@ -1,6 +1,6 @@
 package Dancer::Template::Mason2;
 BEGIN {
-  $Dancer::Template::Mason2::VERSION = '0.03';
+  $Dancer::Template::Mason2::VERSION = '0.04';
 }
 use Dancer::Config 'setting';
 use File::Basename;
@@ -30,6 +30,7 @@ sub render {
     my ( $self, $template, $tokens ) = @_;
 
     $template =~ s/^\Q$root_dir//;    # cut the leading path
+    $template =~ y|\\|/|;             # convert slashes on Windows
 
     my $content = $_engine->run( $template, %$tokens )->output;
     return $content;
@@ -47,7 +48,7 @@ Dancer::Template::Mason2 - Mason 2.x wrapper for Dancer
 
 =head1 VERSION
 
-version 0.03
+version 0.04
 
 =head1 SYNOPSIS
 
